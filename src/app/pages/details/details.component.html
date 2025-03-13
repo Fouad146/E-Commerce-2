@@ -1,0 +1,71 @@
+@if (productDetails) {
+  <section>
+    <div class="container py-5">
+      <h2 class="text-center my-2 font-semibold text-2xl capitalize pb-3">details products</h2>
+      <div class=" bg-gray-100 rounded-lg shadow-2xl w-full container">
+        <div class="row justify-between items-center">
+          <div class="col-md-3">
+            <owl-carousel-o [options]="customOptions">
+              <ng-container>
+                @for (img of productDetails.images; track $index) {
+                    <ng-template carouselSlide>
+                    <figure class="w-full">
+                      <img class="w-full" [src]="img" >
+                    </figure>
+                  </ng-template>
+                }
+              </ng-container>
+            </owl-carousel-o>
+
+
+
+          </div>
+
+          <div class="details col-md-9">
+            <div>
+              <h2 class="font-semibold text-2xl">{{productDetails.title}} </h2>
+              <p class="text-gray-600 my-3 ">{{productDetails.description}}</p>
+              <h3 class="h-6 my-2 text-xl">{{productDetails.category.name}}</h3>
+            </div>
+
+
+            <div>
+              <div class="flex my-3 col-md-10 justify-center mx-auto">
+
+                <p class="mb-3 font-semibold text-gray-700 me-auto ">{{productDetails.price}} EPG</p>
+
+                @for (num of [1,2,3,4,5].slice(0,productDetails.ratingsAverage); track $index) {
+                <i class="fas fa-star text-yellow-300"></i>
+                }
+                @if (productDetails.ratingsAverage % 1 !==0) {
+                <i class="fa-solid fa-star-half-stroke text-yellow-300"></i>
+                }
+                <h2 class="mb-3 font-semibold text-gray-700 ps-2">{{productDetails.ratingsAverage}}</h2>
+              </div>
+
+              <div class="flex my-3 col-md-10 mx-auto ">
+                <button (click)="getCartItem(productDetails.id)" class=" add-cart capitalize items-center py-2 text-sm font-medium ">
+                  <i class="fa-solid fa-plus"></i>
+                  <span> add to cart </span>
+                </button>
+                <div class="heart ms-auto">
+                  <i class="fa-solid fa-heart fa-2x"></i>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+}
+
+
+
+

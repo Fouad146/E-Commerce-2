@@ -1,0 +1,90 @@
+<section class="bg-gray-100 border rounded-lg p-4 shadow-xl w-[75%] mx-auto">
+  <div class="heder pb-3 flex ">
+    <div>
+      <h1 class="font-light capitalize fa-2x ">
+        Wish List :
+      </h1>
+
+    </div>
+
+
+
+  </div>
+  <div class=" container grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-6">
+    @for (prod of wishDetels; track prod.id) {
+      <div class="container cart overflow-hidden max-w-sm rounded-lg">
+        <div [routerLink]="['/details' , prod.id]"  >
+        <div class=" w-full">
+          <img class="rounded-t-lg mx-auto " [src]="prod.imageCover" [alt]="prod.title"  />
+        </div>
+        <div class="px-5 py-2">
+
+          <h5 class="mb-2 capitalize font-semibold tracking-tight text-green-600 ">
+            {{prod.slug.split("-").slice(0,2).join(" ")}}</h5>
+
+          <p class="mb-3 font-normal ">{{prod.title.split(" ").slice(0,2).join(" ")}}</p>
+          <div class="flex justify-between">
+            <p class="mb-3 font-semibold text-gray-700  ">{{prod.ratingsAverage}}<i class="fa-solid fa-star text-yellow-300"></i></p>
+            <p class="mb-3 font-semibold text-gray-700 ">{{prod.price}} EPG</p>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="b-cart flex justify-evenly items-center pb-3">
+
+          <button (click)="getCartItem(prod.id)" class=" add-cart capitalize items-center px-3 py-2 text-sm font-medium " >
+            <i class="fa-solid fa-plus"></i>
+            <span> add to cart </span>
+          </button>
+          
+          <button class="remove-cart capitalize items-center px-3 py-2 text-sm font-medium" (click)="removeIteme(prod.id)"> <i class="fas fa-trash-can"></i>
+            Remove</button>
+
+
+      </div>
+    </div>
+
+    }
+
+  </div>
+
+
+  <!-- <div>
+    @for (prod of wishDetels; track prod._id) {
+    <div class="grid  gap-4 border-b-2 pb-2">
+      <div class=" row flex justify-between">
+        <div class="detl grid md:grid-cols-[10%_minmax(0,1fr)]">
+          <figure >
+            <img class="w-full h-full object-fit-contain" [src]="prod.imageCover" [alt]="prod.title">
+          </figure>
+          <div class="details flex justify-between items-center">
+            <div class="data">
+              <h3 class="fa-2x font-semibold">{{prod.title}}</h3>
+              <p class="text-green-600">price : {{prod.price}} EGP</p>
+
+            </div>
+          </div>
+        </div>
+
+            <button (click)="removeIteme(prod.id)"> <i class="fas fa-trash-can text-red-600"></i>
+              Remove</button>
+      </div>
+
+
+
+
+
+          <button (click)="getCartItem(prod.id)"
+            class=" add-cart capitalize items-center px-3 py-2 text-sm font-medium ">
+            <i class="fa-solid fa-plus"></i>
+            <span> add to cart </span>
+          </button>
+
+
+    </div>
+    }
+  </div> -->
+
+</section>
+

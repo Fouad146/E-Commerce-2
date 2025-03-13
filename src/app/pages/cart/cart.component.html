@@ -1,0 +1,51 @@
+<section class="bg-gray-100 border rounded-lg p-4 shadow-xl w-[75%] mx-auto">
+  <div class="heder pb-3 flex ">
+<div>
+  <h1 class="font-light capitalize fa-2x ">
+    Shop cart :
+  </h1>
+  <h3 class="capitalize text-green-600  ">
+    total cart price : {{cartDetails.totalCartPrice | currency:'GBP'}}
+  </h3>
+
+</div>
+
+    <button (click)="payMiant()" class="ms-auto block bg-green-600 text-white rounded-lg px-5 py-1 h-10 hover:bg-green-800 align-self-end   capitalize">buy products</button>
+
+
+  </div>
+
+  <div>
+    @for (prod of cartDetails.products; track prod.product._id) {
+    <div class="grid md:grid-cols-[10%_minmax(0,1fr)] gap-4 border-b-2 pb-2">
+      <figure>
+        <img class="w-full h-full object-fit-contain" [src]="prod.product.imageCover" [alt]="prod.product.title">
+      </figure>
+      <div class="details flex justify-between items-center">
+        <div class="data">
+          <h3>{{prod.product.title}}</h3>
+          <p class="text-green-600">price:{{prod.price}} EGP</p>
+          <button (click)="removeIteme(prod.product.id)"> <i class="fas fa-trash-can text-green-600"></i>
+            Remove</button>
+        </div>
+
+        <div class="counter flex items-center gap-3 ">
+          <button (click)="updatCount(prod.product._id , prod.count + 1)" class=" bg-green-600 fa-2 text-white py-1 px-2 rounded-lg hover:bg-green-700  "><i class="fa-solid fa-plus"></i></button>
+          <span>{{prod.count}}</span>
+          <button (click)="updatCount(prod.product._id , prod.count - 1)" class=" bg-green-600 fa-2 text-white py-1 px-2 rounded-lg hover:bg-green-700"> <i class="fa-solid fa-minus"></i></button>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    }
+    <button (click)="clearMyCart()"
+    class="clear block mt-2  capitalize w-full  "
+    aria-current="page" >Clear Cart</button>
+
+  </div>
+
+</section>
+

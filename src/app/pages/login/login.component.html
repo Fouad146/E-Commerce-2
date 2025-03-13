@@ -1,0 +1,87 @@
+<section >
+  <div class="container m-auto text-center w-1/2">
+
+    <h2 class="text-2xl font-bold italic">log in now</h2>
+    <div class="container bg-slate-200 rounded-lg p-5 mt-3">
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm() ">
+
+        <!-- email ------------------------------>
+        <div class="mb-3">
+          <label for="email" class="block mb-2 text-sm font-medium  text-start capitalize">email</label>
+          <input formControlName="email" type="email" id="email" class="block w-full p-2 rounded-lg  text-base ">
+
+          @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched ){
+          <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
+            <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+
+              <ul class="mt-1.5 list-disc list-inside">
+                @if(loginForm.get('email')?.getError('required')){
+                <li class="capitalize">email is required</li>
+                }@else if (loginForm.get('email')?.getError('email')) {
+                <li class="capitalize">email not valid</li>
+                }
+
+              </ul>
+            </div>
+          </div>
+          }
+        </div>
+
+        <!-- password----------------------------- -->
+        <div class="mb-3">
+          <label for="password" class="block mb-2 text-sm font-medium  text-start capitalize">password</label>
+          <input formControlName="password" type="password" id="password"
+            class="block w-full p-2 rounded-lg  text-base ">
+          @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+          <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
+            <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+
+              <ul class="mt-1.5 list-disc list-inside">
+                @if(loginForm.get('password')?.getError('required')){
+                <li class="capitalize">password is required</li>
+                }@else if (loginForm.get('password')?.getError('minlength')) {
+                <li class="capitalize">minLength is 6 caracters</li>}
+                @else if (loginForm.get('password')?.getError('pattern')) {
+                <li class="capitalize">you must start with capital caracter </li>}
+              </ul>
+            </div>
+          </div>
+          }
+        </div>
+
+        <button type="submit" [disabled]="isLoading" class="btn-main">
+          @if (isLoading) {
+          <span><i class="fa-spin fas fa-spinner fa-1x"></i></span>
+          }@else{log in}
+        </button>
+
+        <a  class="capitalize hover:underline hover:text-blue-950" [routerLink]="['/forget']" >forget password</a>
+
+        @if(msgError){
+          <p class="bg-red-400 text-white px-2 py-4 border">
+            {{msgError}}
+            </p>
+        }@else if (msgsuccess) {
+          <p class="bg-green-400 text-white px-2 py-4 border">
+            {{msgsuccess}}
+            </p>
+
+        }
+
+      </form>
+
+    </div>
+  </div>
+</section>

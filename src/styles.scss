@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@import 'ngx-toastr/toastr';
+
+@import 'sweetalert2/src/sweetalert2.scss';
+
+
+
+.btn-main{
+  @apply  disabled:bg-slate-700 capitalize bg-green-600 text-white p-2 rounded-lg w-28 flex justify-self-end justify-center items-center  hover:bg-green-800
+}
+
+

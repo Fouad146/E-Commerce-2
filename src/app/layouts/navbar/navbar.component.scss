@@ -1,0 +1,29 @@
+nav{
+  position: sticky;
+  top: 0;
+  z-index: 999999;
+    .navtab{
+    color: white;
+    background: #4FA74F;
+    border-radius: 5px ;
+    padding: 10px 10px;
+    font-weight: bold;
+    transition: all .5s;
+  }
+  .icontab{
+    color: #4FA74F;
+
+  }
+
+  .pointer{
+    cursor: pointer;
+  }
+.signout{
+  &:hover{
+    background: #c43f3f;
+
+  }
+
+}
+
+}

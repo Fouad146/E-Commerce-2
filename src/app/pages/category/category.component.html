@@ -1,0 +1,17 @@
+<section class="my-5">
+  <div class=" container grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-6">
+    @for (cat of categs; track cat._id) {
+    <div class="container cart overflow-hidden max-w-sm rounded-lg">
+      <figure>
+        <img [src]="cat.image" class="w-full h-[300px]" [alt]="cat.name">
+      </figure>
+      <div class="px-5 py-2">
+
+        <h5 class="mb-2 capitalize text-center font-semibold tracking-tight text-green-950 hover:text-green-600 ">
+          {{cat.name}}</h5>
+
+      </div>
+    </div>
+    }
+  </div>
+</section>

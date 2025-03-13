@@ -1,0 +1,83 @@
+<section class="bg-gray-100 border rounded-lg p-4 my-5 shadow-xl w-[75%] mx-auto">
+  <h1 class="text-center text-green-600 text-3xl capitalize" >check out</h1>
+<form [formGroup]="checkOutForm" (ngSubmit)="subForm()"  action="">
+  <div class="mb-3">
+    <label for="details" class="block mb-2 text-sm font-medium  text-start capitalize">details</label>
+    <input formControlName="details" type="text" id="details" class="block w-full p-2 rounded-lg  text-base ">
+
+    @if(checkOutForm.get('details')?.errors && checkOutForm.get('details')?.touched){
+    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
+      <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>
+      <span class="sr-only">Danger</span>
+      <div>
+
+        <ul class="mt-1.5 text-start list-disc list-inside">
+          @if (checkOutForm.get('details')?.getError('required')) {
+          <li class="capitalize">details is required</li>
+          }
+        </ul>
+
+      </div>
+    </div>
+
+    }
+  </div>
+
+  <div class="mb-3">
+    <label for="phone" class="block mb-2 text-sm font-medium  text-start capitalize">phone</label>
+    <input formControlName="phone" type="tel" id="phone" class="block w-full p-2 rounded-lg  text-base ">
+
+    @if(checkOutForm.get('phone')?.errors && checkOutForm.get('phone')?.touched){
+    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
+      <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>
+      <span class="sr-only">Danger</span>
+      <div>
+
+        <ul class="mt-1.5 text-start list-disc list-inside">
+          @if (checkOutForm.get('phone')?.getError('required')) {
+          <li class="capitalize">phone is required</li>
+          }
+        </ul>
+
+      </div>
+    </div>
+
+    }
+  </div>
+
+  <div class="mb-3">
+    <label for="city" class="block mb-2 text-sm font-medium  text-start capitalize">city</label>
+    <input formControlName="city" type="text" id="city" class="block w-full p-2 rounded-lg  text-base ">
+
+    @if(checkOutForm.get('city')?.errors && checkOutForm.get('city')?.touched){
+    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
+      <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+      </svg>
+      <span class="sr-only">Danger</span>
+      <div>
+
+        <ul class="mt-1.5 text-start list-disc list-inside">
+          @if (checkOutForm.get('city')?.getError('required')) {
+          <li class="capitalize">city is required</li>
+          }
+        </ul>
+
+      </div>
+    </div>
+
+    }
+  </div>
+<button type="submit" class="ms-auto block bg-green-600 text-white rounded-lg px-5 py-1 h-10 hover:bg-green-800 align-self-end   capitalize">online payment</button>
+</form>
+</section>

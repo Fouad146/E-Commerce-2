@@ -1,0 +1,97 @@
+<nav class=" bg-gray-50  container-fluid items-center pb-2">
+  <div class="max-w-screen-xxl md:flex flex-wrap items-center justify-between px-4">
+    <img routerLink="/home" class="pointer" src="./freshcart-logo.svg" alt="">
+    <button data-collapse-toggle="navbar-default" type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 "
+      aria-controls="navbar-default" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+    <div class="hidden w-full md:flex md:w-auto  flex-grow " id="navbar-default">
+
+      @if (isLogIn()) {
+      <ul
+        class="md:ms-auto font-medium flex flex-col px-4 md:px-0 mt-4 border md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 ">
+        <li class="">
+          <a routerLink="/home" routerLinkActive=" navtab "
+            class=" block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">home</a>
+        </li>
+        <li class="">
+          <a routerLink="/cart" routerLinkActive="navtab "
+            class="block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">cart</a>
+        </li>
+        <li class="">
+          <a routerLink="/wishlist" routerLinkActive="navtab "
+            class="block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">wish list</a>
+        </li>
+        <li class="">
+          <a routerLink="/products" routerLinkActive="navtab "
+            class="block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">products</a>
+        </li>
+        <li class="">
+          <a routerLink="/category" routerLinkActive="navtab "
+            class="block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">catigores</a>
+        </li>
+        <li class="">
+          <a routerLink="/brands" routerLinkActive="navtab "
+            class="block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">brands</a>
+        </li>
+
+      </ul>
+      }
+
+
+      <ul
+        class="  ms-auto font-medium flex flex-col px-4 md:px-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
+        @if (!isLogIn()) {
+
+        <li class="">
+          <a routerLink="/login" routerLinkActive="navtab "
+            class="block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">login</a>
+        </li>
+        <li class="">
+          <a routerLink="/register" routerLinkActive="navtab "
+            class="block py-2 px-3 rounded-sm md:bg-transparent capitalize font-thin w-full text-gray-500 "
+            aria-current="page">register</a>
+        </li>
+
+
+        }@else {
+
+        <li class=" flex grid-cols-2 space-x-8  my-auto">
+          <a routerLink="/cart" routerLinkActive="icontab"><i class="fa-solid fa-cart-shopping text-3xl"></i></a>
+
+          <div class="flex grid-cols-5 space-x-4 items-center">
+            <a href="https://www.instagram.com" target="_blank"> <i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank"> <i class="fa-brands fa-facebook"></i> </a>
+            <a href="https://www.tiktok.com" target="_blank"> <i class="fa-brands fa-tiktok"></i> </a>
+            <a href="https://www.twitter.com" target="_blank"> <i class="fa-brands fa-twitter"></i> </a>
+            <a href="https://www.linkedin.com" target="_blank"> <i class="fa-brands fa-linkedin"></i> </a>
+            <a href="https://www.youtube.com" target="_blank"> <i class="fa-brands fa-youtube "></i> </a>
+          </div>
+
+        </li>
+
+        <li class="">
+          <button (click)="signOutBtn()"
+            class="navtab signout block"
+            aria-current="page" >Signout</button>
+        </li>
+
+
+        }
+      </ul>
+
+    </div>
+  </div>
+</nav>

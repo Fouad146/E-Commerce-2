@@ -1,0 +1,25 @@
+.add-cart{
+  transition: all .8s;
+  background-color: #4FA74F;
+  border-radius: 10px;
+  color: white;
+  // width: 80%;
+  text-align: center;
+&:hover{
+background-color: #1c721c;
+
+}
+}
+.remove-cart{
+  transition: all .8s;
+  background-color: #e62929;
+  border-radius: 10px;
+  color: white;
+  // width: 80%;
+  text-align: center;
+&:hover{
+background-color: #7c1616;
+
+}
+
+}
